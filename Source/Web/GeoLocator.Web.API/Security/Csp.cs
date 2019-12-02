@@ -62,7 +62,7 @@ namespace GeoLocator.Web.API.Security
         /// </summary>
         public static string GetCspScriptRule()
         {
-            const string swaggerHash = "'sha256-NIDT1bUKf5Ez3feQSP65cgv5YGrWo7EEQjUGoP7TnLs='"; // ensures execution of signed scripts only
+            const string swaggerHash = "'sha256-yb/80J43X9YK+17lv5tq+1lll0kRJHJqlbHEnMm+tqY='"; // ensures execution of signed scripts only
             return $"script-src 'self' {swaggerHash}";
         }
 

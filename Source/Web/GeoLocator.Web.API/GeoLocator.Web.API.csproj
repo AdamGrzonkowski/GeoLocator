@@ -34,6 +34,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\GeoLocator.Web.API.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,6 +46,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi, Version=4.3.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Autofac.WebApi2.4.3.1\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
@@ -99,9 +106,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\ContainerConfig.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\GeoLocationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -118,8 +126,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Web.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
     <None Include="Web.main.config">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +157,10 @@
     <ProjectReference Include="..\..\Infrastructure\GeoLocator.Domain.Services\GeoLocator.Domain.Services.csproj">
       <Project>{1907995c-4c01-467b-acc9-d86a66b2c261}</Project>
       <Name>GeoLocator.Domain.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\GeoLocator.Shared.Helper\GeoLocator.Shared.Helper.csproj">
+      <Project>{FAF3C87F-7E8E-4D8D-8575-48FA38E29E8E}</Project>
+      <Name>GeoLocator.Shared.Helper</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

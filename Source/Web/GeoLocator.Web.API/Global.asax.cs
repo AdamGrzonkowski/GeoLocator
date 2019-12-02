@@ -1,4 +1,5 @@
-﻿using GeoLocator.Web.API.Security;
+﻿using GeoLocator.Web.API.App_Start;
+using GeoLocator.Web.API.Security;
 
 using log4net;
 
@@ -21,6 +22,7 @@ namespace GeoLocator.Web.API
             log4net.Config.XmlConfigurator.Configure(
                 new FileInfo(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile));
             GlobalConfiguration.Configure(WebApiConfig.Register);
+            ContainerConfig.Configure();
         }
 
         protected void Application_PreSendRequestHeaders(object sender, EventArgs e)

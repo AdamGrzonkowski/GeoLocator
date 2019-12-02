@@ -31,17 +31,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="GeoLocationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -53,6 +57,17 @@
       <Project>{05027447-1630-4837-a7af-1452ab1e61fb}</Project>
       <Name>GeoLocator.Application.Services.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Core\GeoLocator.Domain.Entities\GeoLocator.Domain.Entities.csproj">
+      <Project>{C76025B0-96DC-42BA-862B-31995415B463}</Project>
+      <Name>GeoLocator.Domain.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\GeoLocator.Domain.Services.Interfaces\GeoLocator.Domain.Services.Interfaces.csproj">
+      <Project>{0A58117A-CF34-4646-B680-A4466A3D8C5A}</Project>
+      <Name>GeoLocator.Domain.Services.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
